@@ -1,3 +1,46 @@
 body{
     background-color: black;
+    color: blanchedalmond;
+}
+#container{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.player{
+    float: left;
+    font-size: 60px;
+    width: 500px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.choice{
+    float: left;
+    font-size: 45px;
+    cursor: pointer;
+    width: 500px;
+    text-align: center;
+}
+.choiceButton{
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    background-color:#B22;
+    color: #fff;
+    border: none;
+    transition: background-color 0.1s ease-in;
+}
+.choiceButton:hover{
+    background-color: red;
+}
+.war{
+    font-size: 100px;
+    text-align: center;
+    margin-top: 60px;
+}
+.winner{
+    font-size: 80px;
+    text-align: center;
+    margin-top: 60px;
 }
