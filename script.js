@@ -2,31 +2,37 @@ let paper = document.getElementById("paper")
 let scissors = document.getElementById("scissors")
 let rock = document.getElementById("rock")
 
-paper.addEventListener("click", function () { choose("paper") })
-scissors.addEventListener("click", function () { choose("scissors") })
-rock.addEventListener("click", function () { choose("rock") })
+paper.addEventListener("click", function () { choose("img/paper.png") })
+scissors.addEventListener("click", function () { choose("img/scissors.png") })
+rock.addEventListener("click", function () { choose("img/rock.png") })
 
 function choose(event) {
-    let war = document.getElementById("war")
     let resultComputer = computer()
-    document.getElementById("computerChoice").innerHTML = resultComputer
-    war.innerHTML = event + " vs " + resultComputer
-    console.log(resultComputer)
+    let imgComputer = document.createElement('img')
+    imgComputer.src = resultComputer
+    document.getElementById('computerChoice').appendChild(imgComputer)
+    let war = document.createElement('img')
+    war.src = event 
+    let war2 = document.createElement('img')
+    war2.src = resultComputer
+    document.getElementById('war').appendChild(war)
+    document.getElementById('war').appendChild(war2)
+
     let winner = document.getElementById("winner")
     if (event === resultComputer) {
         winner.innerHTML = "Draw"
     }
-    if (event === "paper" && resultComputer === "rock" || event === "rock" && resultComputer === "scissors" || event === "scissors" && resultComputer === "paper") {
+    if (event === "img/paper.png" && resultComputer === "img/rock.png" || event === "img/rock.png" && resultComputer === "img/scissors.png" || event === "img/scissors.png" && resultComputer === "img/paper.png") {
         winner.innerHTML = "Winner = Player"
     }
-    if (event === "paper" && resultComputer === "scissors" || event === "scissors" && resultComputer === "rock" || event === "rock" && resultComputer === "paper") {
+    if (event === "img/paper.png" && resultComputer === "img/scissors.png" || event === "img/scissors.png" && resultComputer === "img/rock.png" || event === "img/rock.png" && resultComputer === "img/paper.png") {
         winner.innerHTML = "Winner = Computer"
     }
 }
 function computer() {
     let arrComputer = new Array()
-    arrComputer[0] = "paper"
-    arrComputer[1] = "scissors"
-    arrComputer[2] = "rock"
+    arrComputer[0] = "img/paper.png"
+    arrComputer[1] = "img/scissors.png"
+    arrComputer[2] = "img/rock.png"
     return arrComputer[Math.floor(Math.random() * arrComputer.length)]
 }
