@@ -1,12 +1,13 @@
 let paper = document.getElementById("paper")
 let scissors = document.getElementById("scissors")
 let rock = document.getElementById("rock")
-
+let lock = true
 paper.addEventListener("click", function () { choose("img/paper.png") })
 scissors.addEventListener("click", function () { choose("img/scissors.png") })
 rock.addEventListener("click", function () { choose("img/rock.png") })
 
 function choose(event) {
+    if(lock === false){return}
     setTimeout(function () {
         let resultComputer = computer()
         let imgComputer = document.createElement('img')
@@ -33,6 +34,7 @@ function choose(event) {
             }, 500)
         }, 500)
     }, 500)
+    lock = false
 }
 function computer() {
     let arrComputer = new Array()
